@@ -1,8 +1,7 @@
-[gd_scene format=4 uid="uid://cdllngtluaemq"]
+[gd_scene format=3 uid="uid://cdllngtluaemq"]
 
 [ext_resource type="TileSet" uid="uid://bt6l07lv8mqdu" path="res://resources/tilesets/hextiles.res" id="1_kbgjf"]
 
-[node name="TileMapLayer" type="TileMapLayer" unique_id=330911842]
+[node name="TileMapLayerWorld" type="TileMapLayer" unique_id=330911842]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAAAAAAEAAIAAAAAAAEAAAAFAAIAAAABAAAAAAAGAAIAAAD//wEAAAAHAAIAAAAAAAIAAAAEAAMAAAABAAIAAAAEAAMAAAABAAEAAAAEAAMAAAACAAAAAAAEAAMAAAACAAIAAAAFAAMAAAACAAEAAAAFAAMAAAADAAAAAAAFAAMAAAADAAEAAwAAAAIAAAADAAIAAwABAAIAAAAEAAIAAwAEAAEAAAAEAAEAAwAGAAEAAAAFAAEAAwAAAAEAAAAEAAMAAwABAAEAAAAFAAIAAwADAAIAAAADAAMAAwADAAEAAAAFAAMAAwAEAAIAAAA=")
 tile_set = ExtResource("1_kbgjf")
