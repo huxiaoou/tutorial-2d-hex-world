@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="tutorial-2d-hex-world"
-run/main_scene="uid://dgvlx6jd7rjxa"
+run/main_scene="uid://b3k6ci2qqb7lh"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [display]
 
-window/size/viewport_width=3840
-window/size/viewport_height=2160
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [input]
