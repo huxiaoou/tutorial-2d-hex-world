@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3k6ci2qqb7lh"]
 
-[ext_resource type="Texture2D" uid="uid://5jju6enjqxr" path="res://assets/backgrounds/Generated Image June 04, 2026 - 9_04PM.jpg" id="1_th188"]
+[ext_resource type="Texture2D" uid="uid://bb1yo3hung5yh" path="res://assets/backgrounds/grave.png" id="1_th188"]
 [ext_resource type="PackedScene" uid="uid://cq1mc0va1r2se" path="res://scenes/unit.tscn" id="2_th188"]
 
 [node name="Battle" type="Node2D" unique_id=1843728498]
@@ -16,4 +16,4 @@ expand_mode = 5
 [node name="Units" type="Node" parent="." unique_id=1752192186]
 
 [node name="Unit" parent="Units" unique_id=147101517 instance=ExtResource("2_th188")]
-position = Vector2(937, 811)
+position = Vector2(968, 634)
