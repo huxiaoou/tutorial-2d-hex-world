@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3k6ci2qqb7lh"]
 
-[ext_resource type="Texture2D" uid="uid://dn6v301w6j76m" path="res://assets/backgrounds/Generated Image June 03, 2026 - 10_20PM.jpg" id="1_dn72j"]
+[ext_resource type="Texture2D" uid="uid://5jju6enjqxr" path="res://assets/backgrounds/Generated Image June 04, 2026 - 9_04PM.jpg" id="1_th188"]
 [ext_resource type="PackedScene" uid="uid://cq1mc0va1r2se" path="res://scenes/unit.tscn" id="2_th188"]
 
 [node name="Battle" type="Node2D" unique_id=1843728498]
@@ -10,20 +10,10 @@ y_sort_enabled = true
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("1_dn72j")
+texture = ExtResource("1_th188")
 expand_mode = 5
-metadata/_edit_lock_ = true
 
-[node name="Unit3" parent="." unique_id=1620595686 instance=ExtResource("2_th188")]
-position = Vector2(744, 748)
-scale = Vector2(0.3, 0.3)
+[node name="Units" type="Node" parent="." unique_id=1752192186]
 
-[node name="Unit2" parent="." unique_id=24074285 instance=ExtResource("2_th188")]
-position = Vector2(576, 867)
-scale = Vector2(0.5, 0.5)
-
-[node name="Unit" parent="." unique_id=147101517 instance=ExtResource("2_th188")]
-position = Vector2(301, 1058)
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1368986111]
-visible = false
+[node name="Unit" parent="Units" unique_id=147101517 instance=ExtResource("2_th188")]
+position = Vector2(937, 811)
