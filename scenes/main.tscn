@@ -5,7 +5,8 @@
 
 [node name="Main" type="Node2D" unique_id=332760894]
 
-[node name="Node2D" parent="." unique_id=1771290045 instance=ExtResource("1_o5qli")]
+[node name="World" parent="." unique_id=1771290045 instance=ExtResource("1_o5qli")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=159563450]
+position = Vector2(960, 540)
 script = ExtResource("2_0wfyh")

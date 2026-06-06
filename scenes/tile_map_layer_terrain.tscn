@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cbgubbib80pnx"]
+
+[ext_resource type="TileSet" uid="uid://bt6l07lv8mqdu" path="res://resources/tilesets/hextiles.res" id="1_11cpm"]
+
+[node name="TileMapLayerTerrain" type="TileMapLayer" unique_id=1969393315]
+tile_set = ExtResource("1_11cpm")
