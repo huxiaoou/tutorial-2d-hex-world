@@ -1,0 +1,17 @@
+[gd_scene format=4 uid="uid://did5mleq6mhjk"]
+
+[ext_resource type="TileSet" uid="uid://bwk118dpkjx8o" path="res://resources/tilesets/pixcatacombs.res" id="1_52fuu"]
+[ext_resource type="Script" uid="uid://fexmup5mdofg" path="res://scenes/pixel_scene.gd" id="1_r72jh"]
+
+[node name="TileMapLayerCatacombs" type="SubViewportContainer" unique_id=551118491]
+offset_right = 640.0
+offset_bottom = 360.0
+scale = Vector2(3, 3)
+script = ExtResource("1_r72jh")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=504961624]
+size = Vector2i(640, 360)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SubViewport" unique_id=644540139]
+tile_map_data = PackedByteArray("AAABAAIAAAAuABoAAAABAAMAAAAuABsAAAABAAQAAAAuABwAAAABAAUAAAAuAB0AAAACAAIAAAAvABoAAAACAAMAAAAvABsAAAACAAQAAAAvABwAAAACAAUAAAAvAB0AAAADAAIAAAAwABoAAAADAAMAAAAwABsAAAADAAQAAAAwABwAAAADAAUAAAAwAB0AAAAEAAIAAAAxABoAAAAEAAMAAAAxABsAAAAEAAQAAAAxABwAAAAEAAUAAAAxAB0AAAA=")
+tile_set = ExtResource("1_52fuu")
