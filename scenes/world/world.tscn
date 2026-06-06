@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c3yijik35y2mn"]
 
-[ext_resource type="PackedScene" uid="uid://cdllngtluaemq" path="res://scenes/tile_map_layer_world.tscn" id="1_rwgxs"]
-[ext_resource type="PackedScene" uid="uid://cbgubbib80pnx" path="res://scenes/tile_map_layer_terrain.tscn" id="2_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://cdllngtluaemq" path="res://scenes/tilemaplayers/tile_map_layer_world.tscn" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://cbgubbib80pnx" path="res://scenes/tilemaplayers/tile_map_layer_terrain.tscn" id="2_4wyf3"]
 
 [node name="World" type="Node2D" unique_id=1771290045]
 metadata/_edit_lock_ = true

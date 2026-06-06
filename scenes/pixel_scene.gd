@@ -1,3 +1,0 @@
-extends SubViewportContainer
-
-class_name PixelScene

@@ -1,7 +1,0 @@
-[gd_scene format=4 uid="uid://did5mleq6mhjk"]
-
-[ext_resource type="TileSet" uid="uid://bwk118dpkjx8o" path="res://resources/tilesets/pixcatacombs.res" id="1_52fuu"]
-
-[node name="TileMapLayer" type="TileMapLayer" unique_id=598353701]
-tile_map_data = PackedByteArray("AAAQAAoAAAAuABoAAAARAAoAAAAwAB0AAAASAAoAAAAwAB0AAAATAAoAAAAxABoAAAATAAwAAAAxABwAAAATAA0AAAAxAB0AAAASAA0AAAAvAB0AAAARAA0AAAAwAB0AAAAQAA0AAAAuAB0AAAAQAAwAAAAuABsAAAAQAAsAAAAuABsAAAATAAsAAAAxAB0AAAA=")
-tile_set = ExtResource("1_52fuu")
