@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="tutorial-2d-hex-world"
-run/main_scene="uid://b3k6ci2qqb7lh"
+run/main_scene="uid://dgvlx6jd7rjxa"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [display]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b1jra8lsyp1a8"]
+
+[ext_resource type="TileSet" uid="uid://bwk118dpkjx8o" path="res://resources/tilesets/pixel32.res" id="1_0i8g8"]
+
+[node name="TileMapLayerLevel" type="TileMapLayer" unique_id=1899687389]
+tile_set = ExtResource("1_0i8g8")

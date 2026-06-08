@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c3fsqkb57n7dn"]
+
+[ext_resource type="Script" uid="uid://buyyop3iyuokr" path="res://scenes/utils/comp_visual_style_selector.gd" id="1_sa2n0"]
+
+[node name="CompVisualStyleSelector" type="Node" unique_id=556792286]
+script = ExtResource("1_sa2n0")
