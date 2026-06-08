@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cdllngtluaemq" path="res://scenes/tilemaplayers/tile_map_layer_world.tscn" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://cbgubbib80pnx" path="res://scenes/tilemaplayers/tile_map_layer_terrain.tscn" id="2_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://c3fsqkb57n7dn" path="res://scenes/utils/comp_visual_style_selector.tscn" id="3_1fp7r"]
 
 [node name="World" type="Node2D" unique_id=1771290045]
 metadata/_edit_lock_ = true
@@ -11,3 +12,6 @@ tile_map_data = PackedByteArray("AAAEAAYAAAAIAAAAAAADAAUAAAAJAAAAAAADAAQAAAAKAAA
 
 [node name="TileMapLayerWorld" parent="." unique_id=330911842 instance=ExtResource("1_rwgxs")]
 tile_map_data = PackedByteArray("AAABAAMAAwAEAAEAAAADAAIAAwACAAIAAAABAAIAAwADAAIAAAACAAQAAwAFAAEAAAAEAAQAAwAFAAEAAAADAAMAAwAAAAEAAAACAAUAAwABAAEAAAAFAAYAAwADAAgAAAAEAAcAAwAJAAcAAAAEAAUAAwAIAAcAAAADAAcAAwALAAcAAAADAAYAAwACAAoAAAAEAAYABgAEAAsAAAADAAUABgAAAAcAAAADAAQABgABAAcAAAACAAMABgACAAcAAAACAAIABgAEAAsAAAA=")
+
+[node name="CompVisualStyleSelector" parent="." unique_id=556792286 instance=ExtResource("3_1fp7r")]
+visual_style = 0
