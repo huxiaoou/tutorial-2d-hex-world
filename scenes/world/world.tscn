@@ -7,11 +7,11 @@
 [node name="World" type="Node2D" unique_id=1771290045]
 metadata/_edit_lock_ = true
 
+[node name="CompVisualStyleSelector" parent="." unique_id=556792286 instance=ExtResource("3_1fp7r")]
+visual_style = 0
+
 [node name="TileMapLayerTerrain" parent="." unique_id=1969393315 instance=ExtResource("2_4wyf3")]
 tile_map_data = PackedByteArray("AAAEAAYAAAAIAAAAAAADAAUAAAAJAAAAAAADAAQAAAAKAAAAAAACAAMAAAALAAAAAAACAAIAAAAJAAAAAAA=")
 
 [node name="TileMapLayerWorld" parent="." unique_id=330911842 instance=ExtResource("1_rwgxs")]
 tile_map_data = PackedByteArray("AAABAAMAAwAEAAEAAAADAAIAAwACAAIAAAABAAIAAwADAAIAAAACAAQAAwAFAAEAAAAEAAQAAwAFAAEAAAADAAMAAwAAAAEAAAACAAUAAwABAAEAAAAFAAYAAwADAAgAAAAEAAcAAwAJAAcAAAAEAAUAAwAIAAcAAAADAAcAAwALAAcAAAADAAYAAwACAAoAAAAEAAYABgAEAAsAAAADAAUABgAAAAcAAAADAAQABgABAAcAAAACAAMABgACAAcAAAACAAIABgAEAAsAAAA=")
-
-[node name="CompVisualStyleSelector" parent="." unique_id=556792286 instance=ExtResource("3_1fp7r")]
-visual_style = 0
