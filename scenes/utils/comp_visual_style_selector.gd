@@ -9,7 +9,7 @@ enum VisualStyle {
 
 const VISUAL_STYLE_RESOLUTIONS: Dictionary[VisualStyle, Vector2i] = {
     VisualStyle.NON_PIXEL: Vector2i(1920, 1080),
-    VisualStyle.PIXEL: Vector2i(16, 9) * 60,
+    VisualStyle.PIXEL: Vector2i(16, 9) * 30,
 }
 
 @export_group("Visual Style")
