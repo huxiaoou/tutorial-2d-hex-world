@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3k6ci2qqb7lh"]
 
-[ext_resource type="Texture2D" uid="uid://5jju6enjqxr" path="res://assets/backgrounds/Generated Image June 04, 2026 - 9_04PM.jpg" id="1_th188"]
+[ext_resource type="Texture2D" uid="uid://dgry8mhb15363" path="res://assets/backgrounds/MyFirstMap.png" id="1_5od06"]
 [ext_resource type="PackedScene" uid="uid://cq1mc0va1r2se" path="res://scenes/units/unit.tscn" id="2_th188"]
 
 [node name="Battle" type="Node2D" unique_id=1843728498]
@@ -15,7 +15,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_th188")
+texture = ExtResource("1_5od06")
 expand_mode = 1
 
 [node name="Units" type="Node" parent="." unique_id=1752192186]
