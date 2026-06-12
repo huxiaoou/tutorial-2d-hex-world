@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cydq1mfhkev3s"]
+
+[ext_resource type="PackedScene" uid="uid://dd76lvsuxjceq" path="res://scenes/misc/camera_world.tscn" id="1_y1d3t"]
+[ext_resource type="Texture2D" uid="uid://dir8pfqoqdgas" path="res://assets/backgrounds/64-701.png" id="2_0xhdi"]
+
+[node name="LevelDungeon" type="Node2D" unique_id=935300141]
+
+[node name="CameraWorld" parent="." unique_id=1233723003 instance=ExtResource("1_y1d3t")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1579468750]
+texture = ExtResource("2_0xhdi")
