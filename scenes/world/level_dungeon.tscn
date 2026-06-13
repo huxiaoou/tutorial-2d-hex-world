@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cc6ip40yvm8b2" path="res://scenes/world/level_dungeon.gd" id="1_a1ljs"]
 [ext_resource type="PackedScene" uid="uid://dd76lvsuxjceq" path="res://scenes/misc/camera_world.tscn" id="1_y1d3t"]
-[ext_resource type="Texture2D" uid="uid://ddga11nbsw2d3" path="res://assets/backgrounds/upper_observatory_of_the_mad_lady.png" id="2_0xhdi"]
+[ext_resource type="Texture2D" uid="uid://b7pseuowq8vpr" path="res://assets/backgrounds/Generated Image June 13, 2026 - 4_28PM.jpg" id="3_a1ljs"]
 
 [node name="LevelDungeon" type="Node2D" unique_id=935300141]
 script = ExtResource("1_a1ljs")
@@ -10,17 +10,17 @@ script = ExtResource("1_a1ljs")
 [node name="CameraWorld" parent="." unique_id=1233723003 instance=ExtResource("1_y1d3t")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1579468750]
-texture = ExtResource("2_0xhdi")
+texture = ExtResource("3_a1ljs")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=2121015060]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1856.0
-offset_top = -2240.0
-offset_right = -1856.0
-offset_bottom = -2240.0
+offset_left = -2752.0
+offset_top = -1536.0
+offset_right = -2752.0
+offset_bottom = -1536.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.92941177, 0.8784314, 0.80784315, 1)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3k6ci2qqb7lh"]
 
-[ext_resource type="Texture2D" uid="uid://dgry8mhb15363" path="res://assets/backgrounds/MyFirstMap.png" id="1_5od06"]
+[ext_resource type="Texture2D" uid="uid://cnne1jqwfed7f" path="res://assets/backgrounds/Generated Image June 13, 2026 - 4_25PM.jpg" id="1_5od06"]
 [ext_resource type="PackedScene" uid="uid://cq1mc0va1r2se" path="res://scenes/units/unit.tscn" id="2_th188"]
 
 [node name="Battle" type="Node2D" unique_id=1843728498]
