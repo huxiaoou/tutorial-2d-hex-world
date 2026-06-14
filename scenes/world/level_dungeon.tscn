@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cc6ip40yvm8b2" path="res://scenes/world/level_dungeon.gd" id="1_a1ljs"]
 [ext_resource type="PackedScene" uid="uid://dd76lvsuxjceq" path="res://scenes/misc/camera_world.tscn" id="1_y1d3t"]
-[ext_resource type="Texture2D" uid="uid://b7pseuowq8vpr" path="res://assets/backgrounds/Generated Image June 13, 2026 - 4_28PM.jpg" id="3_a1ljs"]
+[ext_resource type="Texture2D" uid="uid://b17s5fk7pel3g" path="res://assets/backgrounds/Dungeon-000.png" id="3_a1ljs"]
 
 [node name="LevelDungeon" type="Node2D" unique_id=935300141]
 script = ExtResource("1_a1ljs")
@@ -17,10 +17,10 @@ z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2752.0
-offset_top = -1536.0
-offset_right = -2752.0
-offset_bottom = -1536.0
+offset_left = -3072.0
+offset_top = -1728.0
+offset_right = -3072.0
+offset_bottom = -1728.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.92941177, 0.8784314, 0.80784315, 1)
