@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://doyue54pd8xke"]
+
+[ext_resource type="Script" uid="uid://b86642g5dguih" path="res://scenes/units/unit_flat.gd" id="1_16d5t"]
+[ext_resource type="Texture2D" uid="uid://bbiqcvillg4iq" path="res://assets/characters/ItemIcon_Friend.png" id="2_aq0we"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mw4fb"]
+radius = 32.0
+
+[node name="UnitFlat" type="CharacterBody2D" unique_id=1928551645]
+script = ExtResource("1_16d5t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=942202784]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aq0we")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=870882273]
+shape = SubResource("CircleShape2D_mw4fb")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1145751865]
