@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://5njp0bg8803y"]
+
+[ext_resource type="Shader" uid="uid://bu6fsddnqdpxv" path="res://scenes/units/avatar.gdshader" id="1_pb6x6"]
+[ext_resource type="Texture2D" uid="uid://dsfpnwjvece6h" path="res://assets/characters/124_1.png" id="2_cr1n6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hbplh"]
+shader = ExtResource("1_pb6x6")
+shader_parameter/tiling_offset = Vector2(0.35, -0.125)
+shader_parameter/radius = 0.4
+shader_parameter/tiling_scale = 0.6
+
+[node name="Avatar" type="Node2D" unique_id=1445779777]
+
+[node name="Control" type="Control" parent="." unique_id=1457369605]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="TextureRect" parent="Control" unique_id=1373783135]
+material = SubResource("ShaderMaterial_hbplh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cr1n6")
+expand_mode = 3
+stretch_mode = 5
