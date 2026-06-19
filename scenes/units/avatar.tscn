@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://be14l50ki4rhi" path="res://scenes/units/avatar.gd" id="1_cr1n6"]
 [ext_resource type="Shader" uid="uid://bu6fsddnqdpxv" path="res://scenes/units/avatar.gdshader" id="1_pb6x6"]
 [ext_resource type="Texture2D" uid="uid://dsfpnwjvece6h" path="res://assets/characters/124_1.png" id="2_cr1n6"]
+[ext_resource type="Texture2D" uid="uid://cl26dvervvr3k" path="res://assets/ui/BaseFrame_Basic_Circle_H98.png" id="3_pohvl"]
+[ext_resource type="Texture2D" uid="uid://b55uvkd22oq44" path="res://assets/ui/BaseFrame_Border_Circle_H106.png" id="4_hbplh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hbplh"]
 shader = ExtResource("1_pb6x6")
@@ -26,10 +28,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_cr1n6"]
 resource_name = "idle"
-length = 2.0
+length = 4.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -38,10 +52,22 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+"values": [0.0, 6.283185307179586]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hbplh"]
@@ -54,27 +80,46 @@ _data = {
 script = ExtResource("1_cr1n6")
 tex = ExtResource("2_cr1n6")
 
-[node name="Control" type="Control" parent="." unique_id=1457369605]
-custom_minimum_size = Vector2(96, 96)
-layout_mode = 3
+[node name="Control" type="CenterContainer" parent="." unique_id=1464392496]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Bg" type="TextureRect" parent="Control" unique_id=1848507192]
+modulate = Color(0.33333334, 0, 0, 0.88235295)
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("3_pohvl")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=1373783135]
 material = SubResource("ShaderMaterial_hbplh")
-layout_mode = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("2_cr1n6")
+expand_mode = 1
+
+[node name="Node2D" type="Node2D" parent="Control" unique_id=1236777852]
+position = Vector2(40, 40)
+
+[node name="Frame" type="TextureRect" parent="Control/Node2D" unique_id=1764587960]
+custom_minimum_size = Vector2(80, 80)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_cr1n6")
+texture = ExtResource("4_hbplh")
 expand_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=829899373]
+visible = false
 shape = SubResource("CircleShape2D_cr1n6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1816766759]
