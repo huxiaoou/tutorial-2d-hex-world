@@ -5,9 +5,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hbplh"]
 shader = ExtResource("1_pb6x6")
-shader_parameter/tiling_offset = Vector2(0.35, -0.125)
-shader_parameter/radius = 0.4
-shader_parameter/tiling_scale = 0.6
+shader_parameter/tiling_offset = Vector2(0.35, 0)
+shader_parameter/tiling_scale = 0.5999999940394299
 
 [node name="Avatar" type="Node2D" unique_id=1445779777]
 
@@ -27,5 +26,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_cr1n6")
-expand_mode = 3
-stretch_mode = 5
+expand_mode = 1
