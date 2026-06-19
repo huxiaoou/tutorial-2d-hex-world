@@ -1,23 +1,69 @@
 [gd_scene format=3 uid="uid://5njp0bg8803y"]
 
+[ext_resource type="Script" uid="uid://be14l50ki4rhi" path="res://scenes/units/avatar.gd" id="1_cr1n6"]
 [ext_resource type="Shader" uid="uid://bu6fsddnqdpxv" path="res://scenes/units/avatar.gdshader" id="1_pb6x6"]
 [ext_resource type="Texture2D" uid="uid://dsfpnwjvece6h" path="res://assets/characters/124_1.png" id="2_cr1n6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hbplh"]
 shader = ExtResource("1_pb6x6")
 shader_parameter/tiling_offset = Vector2(0.35, 0)
-shader_parameter/tiling_scale = 0.5999999940394299
+shader_parameter/tiling_scale = 0.6
 
-[node name="Avatar" type="Node2D" unique_id=1445779777]
+[sub_resource type="CircleShape2D" id="CircleShape2D_cr1n6"]
+radius = 48.0
+
+[sub_resource type="Animation" id="Animation_hbplh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cr1n6"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hbplh"]
+_data = {
+&"RESET": SubResource("Animation_hbplh"),
+&"idle": SubResource("Animation_cr1n6")
+}
+
+[node name="Avatar" type="CharacterBody2D" unique_id=621763819]
+script = ExtResource("1_cr1n6")
+tex = ExtResource("2_cr1n6")
 
 [node name="Control" type="Control" parent="." unique_id=1457369605]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Sprite2D" type="TextureRect" parent="Control" unique_id=1373783135]
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1373783135]
 material = SubResource("ShaderMaterial_hbplh")
 layout_mode = 1
 anchors_preset = 15
@@ -27,3 +73,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_cr1n6")
 expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=829899373]
+shape = SubResource("CircleShape2D_cr1n6")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1816766759]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1334915608]
+libraries/ = SubResource("AnimationLibrary_hbplh")
+autoplay = &"idle"
