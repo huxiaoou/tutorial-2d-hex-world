@@ -10,6 +10,8 @@ const HERO_LINE = preload("uid://bdsnlq27p8uk")
 const WEAPON_IMPACT = preload("uid://djopi6fe0x5dj")
 const MOVE_IN_DURATION: float = 1.0
 const MOVE_OUT_DURATION: float = 1.0
+const MOVE_BACK_DURATION: float = 0.8
+const MOVE_BACK_OFFSET: float = -200.0
 const DISPLAY_DURATION: float = 0.05
 
 
@@ -38,7 +40,9 @@ func play_movement() -> void:
     tween.tween_property(texture_rect, "position:x", center_x, MOVE_IN_DURATION) \
             .set_trans(Tween.TRANS_CUBIC) \
             .set_ease(Tween.EASE_OUT)
-    tween.tween_interval(DISPLAY_DURATION)
+    tween.tween_property(texture_rect, "position:x", center_x + MOVE_BACK_OFFSET, MOVE_BACK_DURATION) \
+            .set_trans(Tween.TRANS_CUBIC) \
+            .set_ease(Tween.EASE_OUT)
     tween.tween_property(texture_rect, "position:x", right_x, MOVE_OUT_DURATION) \
             .set_trans(Tween.TRANS_CUBIC) \
             .set_ease(Tween.EASE_IN)
