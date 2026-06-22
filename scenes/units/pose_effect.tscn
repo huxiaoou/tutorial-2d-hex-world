@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bbnlyoaddd832"]
+
+[ext_resource type="Script" uid="uid://bbkmvba27p4tc" path="res://scenes/units/pose_effect.gd" id="1_7dnaw"]
+[ext_resource type="Texture2D" uid="uid://c2h2qhbbexaqh" path="res://assets/characters/p_124.png" id="1_lag17"]
+[ext_resource type="AudioStream" uid="uid://bdsnlq27p8uk" path="res://assets/audios/Hero_Olivia_I_Will_End_You.wav" id="3_y275o"]
+
+[sub_resource type="Animation" id="Animation_7dnaw"]
+resource_name = "main"
+length = 2.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_movement"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_weapon_impact"
+}, {
+"args": [],
+"method": &"play_lines"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y275o"]
+_data = {
+&"main": SubResource("Animation_7dnaw")
+}
+
+[node name="PoseEffect" type="Node2D" unique_id=2055274280]
+script = ExtResource("1_7dnaw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=703023296]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_lag17")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=236447496]
+stream = ExtResource("3_y275o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1007445166]
+libraries/ = SubResource("AnimationLibrary_y275o")
