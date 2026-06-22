@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbkmvba27p4tc" path="res://scenes/units/pose_effect.gd" id="1_7dnaw"]
 [ext_resource type="Texture2D" uid="uid://c2h2qhbbexaqh" path="res://assets/characters/p_124.png" id="1_lag17"]
+[ext_resource type="Script" uid="uid://cgdv2u3c17a28" path="res://scenes/units/ghost_trail.gd" id="3_5cblm"]
 [ext_resource type="AudioStream" uid="uid://bdsnlq27p8uk" path="res://assets/audios/Hero_Olivia_I_Will_End_You.wav" id="3_y275o"]
 
 [sub_resource type="Animation" id="Animation_7dnaw"]
@@ -54,6 +55,7 @@ offset_bottom = 1080.0
 texture = ExtResource("1_lag17")
 expand_mode = 3
 stretch_mode = 5
+script = ExtResource("3_5cblm")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=236447496]
 stream = ExtResource("3_y275o")
