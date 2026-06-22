@@ -1,3 +1,4 @@
+@tool
 class_name Avatar
 extends CharacterBody2D
 
@@ -23,6 +24,9 @@ func set_avatar() -> void:
 
 
 func _physics_process(delta: float) -> void:
+    if Engine.is_editor_hint():
+        return
+
     var direction: Vector2 = Input.get_vector(
         "camera_move_left",
         "camera_move_right",
