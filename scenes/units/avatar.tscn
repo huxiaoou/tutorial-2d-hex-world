@@ -124,6 +124,7 @@ visible = false
 shape = SubResource("CircleShape2D_cr1n6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1816766759]
+position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1334915608]
 libraries/ = SubResource("AnimationLibrary_hbplh")
