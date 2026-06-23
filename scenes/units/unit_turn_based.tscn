@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dic15kuctavfv"]
+
+[ext_resource type="Script" uid="uid://ce7oitscnoc27" path="res://scenes/units/unit_turn_based.gd" id="1_a0l1j"]
+[ext_resource type="Texture2D" uid="uid://ccfgmnyfte5gj" path="res://assets/characters/fs_101_3.png" id="1_s665f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a0l1j"]
+radius = 255.0
+
+[sub_resource type="Animation" id="Animation_a0l1j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bnhn8"]
+resource_name = "ready"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.02), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uoibw"]
+_data = {
+&"RESET": SubResource("Animation_a0l1j"),
+&"battle_ready": SubResource("Animation_bnhn8")
+}
+
+[node name="UnitTurnBased" type="CharacterBody2D" unique_id=38955862]
+script = ExtResource("1_a0l1j")
+tex_character = ExtResource("1_s665f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=932449467]
+position = Vector2(10, -261)
+shape = SubResource("CircleShape2D_a0l1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=947921725]
+texture = ExtResource("1_s665f")
+offset = Vector2(0, -261)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812482548]
+libraries/ = SubResource("AnimationLibrary_uoibw")
+autoplay = &"battle_ready"

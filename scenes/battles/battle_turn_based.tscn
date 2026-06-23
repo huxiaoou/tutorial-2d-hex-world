@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cjq1qi7f88j18"]
+
+[ext_resource type="Texture2D" uid="uid://q5v2aa1p488a" path="res://assets/backgrounds/background_5.png" id="1_oc50i"]
+[ext_resource type="PackedScene" uid="uid://dic15kuctavfv" path="res://scenes/units/unit_turn_based.tscn" id="2_ka0fc"]
+[ext_resource type="Texture2D" uid="uid://cmm0ehgeqbxdu" path="res://assets/characters/fs_105_3.png" id="3_5k8ds"]
+[ext_resource type="Texture2D" uid="uid://ckqqtri8gpwig" path="res://assets/characters/fs_107_3.png" id="4_ah3cp"]
+[ext_resource type="Texture2D" uid="uid://c52n4n0qcrp5u" path="res://assets/characters/fs_112_3.png" id="5_rmkv8"]
+[ext_resource type="Texture2D" uid="uid://c0vbjbco88s7g" path="res://assets/characters/fs_115_3.png" id="6_fqlbl"]
+[ext_resource type="Texture2D" uid="uid://cvh8hlhgv2xf0" path="res://assets/characters/fs_120_3.png" id="7_4cuwg"]
+
+[node name="BattleTurnBased" type="Node2D" unique_id=2131618278]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1920468858]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_oc50i")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Units" type="Node2D" parent="." unique_id=309827141]
+y_sort_enabled = true
+
+[node name="UnitTurnBased" parent="Units" unique_id=313886638 instance=ExtResource("2_ka0fc")]
+position = Vector2(347, 980)
+scale = Vector2(0.78400004, 0.78400004)
+
+[node name="UnitTurnBased2" parent="Units" unique_id=38955862 instance=ExtResource("2_ka0fc")]
+position = Vector2(544, 706)
+scale = Vector2(0.56479996, 0.56479996)
+tex_character = ExtResource("3_5k8ds")
+
+[node name="UnitTurnBased3" parent="Units" unique_id=510865503 instance=ExtResource("2_ka0fc")]
+position = Vector2(337, 511)
+scale = Vector2(0.40879998, 0.40879998)
+tex_character = ExtResource("4_ah3cp")
+
+[node name="UnitTurnBased4" parent="Units" unique_id=133654671 instance=ExtResource("2_ka0fc")]
+position = Vector2(1517, 486)
+scale = Vector2(0.3872, 0.3872)
+tex_character = ExtResource("5_rmkv8")
+
+[node name="UnitTurnBased5" parent="Units" unique_id=1807821717 instance=ExtResource("2_ka0fc")]
+position = Vector2(1243, 732)
+scale = Vector2(0.6336, 0.6336)
+tex_character = ExtResource("6_fqlbl")
+
+[node name="UnitTurnBased6" parent="Units" unique_id=1925123695 instance=ExtResource("2_ka0fc")]
+position = Vector2(1594, 965)
+scale = Vector2(0.792, 0.792)
+tex_character = ExtResource("7_4cuwg")

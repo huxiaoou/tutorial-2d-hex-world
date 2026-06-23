@@ -28,6 +28,10 @@ folder_colors={
 "res://scenes/": "blue"
 }
 
+[global_group]
+
+units=""
+
 [input]
 
 camera_move_up={
