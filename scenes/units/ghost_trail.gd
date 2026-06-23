@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 
 
 func spawn_ghost() -> void:
-    print("Spawning ghost at position: ", position)
     var ghost: TextureRect = TextureRect.new()
     ghost.expand_mode = self.expand_mode
     ghost.stretch_mode = self.stretch_mode
