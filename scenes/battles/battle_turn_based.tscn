@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c52n4n0qcrp5u" path="res://assets/characters/fs_112_3.png" id="5_rmkv8"]
 [ext_resource type="Texture2D" uid="uid://c0vbjbco88s7g" path="res://assets/characters/fs_115_3.png" id="6_fqlbl"]
 [ext_resource type="Texture2D" uid="uid://cvh8hlhgv2xf0" path="res://assets/characters/fs_120_3.png" id="7_4cuwg"]
+[ext_resource type="PackedScene" uid="uid://cyoj2uhrqxydi" path="res://scenes/battles/turn_states_machine.tscn" id="8_4cuwg"]
 
 [node name="BattleTurnBased" type="Node2D" unique_id=2131618278]
 
@@ -21,31 +22,47 @@ stretch_mode = 5
 [node name="Units" type="Node2D" parent="." unique_id=309827141]
 y_sort_enabled = true
 
-[node name="UnitTurnBased" parent="Units" unique_id=313886638 instance=ExtResource("2_ka0fc")]
+[node name="UnitTurnBased1" parent="Units" unique_id=313886638 instance=ExtResource("2_ka0fc")]
 position = Vector2(347, 980)
 scale = Vector2(0.78400004, 0.78400004)
+unit_name = "Player1"
+initiative = 11
 
 [node name="UnitTurnBased2" parent="Units" unique_id=38955862 instance=ExtResource("2_ka0fc")]
 position = Vector2(544, 706)
 scale = Vector2(0.56479996, 0.56479996)
 tex_character = ExtResource("3_5k8ds")
+unit_name = "Player2"
+initiative = 14
 
 [node name="UnitTurnBased3" parent="Units" unique_id=510865503 instance=ExtResource("2_ka0fc")]
 position = Vector2(337, 511)
 scale = Vector2(0.40879998, 0.40879998)
 tex_character = ExtResource("4_ah3cp")
+unit_name = "Player3"
+initiative = 9
 
-[node name="UnitTurnBased4" parent="Units" unique_id=133654671 instance=ExtResource("2_ka0fc")]
+[node name="UnitTurnBasedA" parent="Units" unique_id=133654671 instance=ExtResource("2_ka0fc")]
 position = Vector2(1517, 486)
-scale = Vector2(0.3872, 0.3872)
+scale = Vector2(0.3888, 0.3888)
 tex_character = ExtResource("5_rmkv8")
+unit_name = "EnemyA"
+initiative = 13
+is_player = false
 
-[node name="UnitTurnBased5" parent="Units" unique_id=1807821717 instance=ExtResource("2_ka0fc")]
+[node name="UnitTurnBasedB" parent="Units" unique_id=1807821717 instance=ExtResource("2_ka0fc")]
 position = Vector2(1243, 732)
-scale = Vector2(0.6336, 0.6336)
+scale = Vector2(0.5856, 0.5856)
 tex_character = ExtResource("6_fqlbl")
+unit_name = "EnemyB"
+initiative = 12
+is_player = false
 
-[node name="UnitTurnBased6" parent="Units" unique_id=1925123695 instance=ExtResource("2_ka0fc")]
+[node name="UnitTurnBasedC" parent="Units" unique_id=1925123695 instance=ExtResource("2_ka0fc")]
 position = Vector2(1594, 965)
-scale = Vector2(0.792, 0.792)
+scale = Vector2(0.772, 0.772)
 tex_character = ExtResource("7_4cuwg")
+unit_name = "EnemyC"
+is_player = false
+
+[node name="TurnStatesMachine" parent="." unique_id=416930863 instance=ExtResource("8_4cuwg")]

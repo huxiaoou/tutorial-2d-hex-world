@@ -44,6 +44,7 @@ _data = {
 }
 
 [node name="UnitTurnBased" type="CharacterBody2D" unique_id=38955862]
+scale = Vector2(0.16000001, 0.16000001)
 script = ExtResource("1_a0l1j")
 tex_character = ExtResource("1_s665f")
 

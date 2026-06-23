@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cyoj2uhrqxydi"]
+
+[ext_resource type="Script" uid="uid://w6r11ffyuga5" path="res://scenes/battles/turn_states_machine.gd" id="1_nmca4"]
+[ext_resource type="Script" uid="uid://cuimr2r0knr27" path="res://scenes/battles/turn_state_round_start.gd" id="2_gouqx"]
+[ext_resource type="Script" uid="uid://dlha1jlw2egms" path="res://scenes/battles/turn_state_next_turn.gd" id="3_t425k"]
+[ext_resource type="Script" uid="uid://dram7fwdx75q8" path="res://scenes/battles/turn_state_player_turn.gd" id="4_0l57s"]
+[ext_resource type="Script" uid="uid://c6xxiycj05obd" path="res://scenes/battles/turn_state_enemy_turn.gd" id="5_8jclk"]
+
+[node name="TurnStatesMachine" type="Node" unique_id=416930863]
+script = ExtResource("1_nmca4")
+
+[node name="RoundStart" type="Node" parent="." unique_id=28828431]
+script = ExtResource("2_gouqx")
+
+[node name="NextTurn" type="Node" parent="." unique_id=2072148246]
+script = ExtResource("3_t425k")
+
+[node name="PlayerTurn" type="Node" parent="." unique_id=2028422299]
+script = ExtResource("4_0l57s")
+
+[node name="EnemyTurn" type="Node" parent="." unique_id=700648383]
+script = ExtResource("5_8jclk")
