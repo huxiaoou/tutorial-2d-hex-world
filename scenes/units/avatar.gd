@@ -7,9 +7,12 @@ extends CharacterBody2D
 @export var tex: Texture2D
 @export var max_move_speed: float = 600
 @export var accerlate: float = 300
+@export var bg_modulate: Color = Color(0.09,0, 0, 0.8)
+
 var move_speed: float = 0
 
 @onready var texture_rect: TextureRect = $Control/TextureRect
+@onready var bg: TextureRect = $Control/Bg
 
 
 func _ready() -> void:
@@ -17,6 +20,7 @@ func _ready() -> void:
 
 
 func set_avatar() -> void:
+    bg.modulate = bg_modulate
     texture_rect.texture = tex
     if texture_rect.material is ShaderMaterial:
         texture_rect.material.set_shader_parameter("tiling_offset", tiling_offset)

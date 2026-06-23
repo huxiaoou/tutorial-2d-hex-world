@@ -79,6 +79,7 @@ _data = {
 [node name="Avatar" type="CharacterBody2D" unique_id=621763819]
 script = ExtResource("1_cr1n6")
 tex = ExtResource("2_cr1n6")
+bg_modulate = Color(4.4520945e-07, 0.20834985, 0, 1)
 
 [node name="Control" type="CenterContainer" parent="." unique_id=1464392496]
 anchors_preset = 15
@@ -92,7 +93,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Bg" type="TextureRect" parent="Control" unique_id=1848507192]
-modulate = Color(0.33333334, 0, 0, 0.88235295)
+modulate = Color(4.4520945e-07, 0.20834985, 0, 1)
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("3_pohvl")
