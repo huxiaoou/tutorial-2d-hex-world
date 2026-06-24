@@ -7,11 +7,15 @@ class_name UnitTurnBased
 @export var unit_name: String = "Unknown Unit"
 @export var initiative: int = 10
 @export var is_player: bool = true
+@export var is_current: bool = false
 
 signal turn_finished()
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+const CURRENT_MODULATE: Color = Color(1.0, 1.0, 1.0, 1.0)
+const NOT_CURRENT_MODULATE: Color = Color(0.5, 0.5, 0.5, 1.0)
 
 
 static func is_quicker(a: UnitTurnBased, b: UnitTurnBased) -> bool:
@@ -24,20 +28,47 @@ func _ready() -> void:
     collision_shape_2d.position.y = -sprite_2d.texture.get_height() / 2.0
 
     var adj_scale: float = clamp(position.y / 1000.0, 0.2, 1.0)
-    scale = Vector2.ONE * 0.8 * adj_scale
+    scale = Vector2.ONE * 0.6 * adj_scale
 
+    set_current(is_current)
     add_to_group("units")
+    return
+
+
+func tween_to_target_module(target_modulate: Color) -> void:
+    var tween: Tween = create_tween()
+    tween.set_trans(Tween.TransitionType.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+    tween.tween_property(sprite_2d, "modulate", target_modulate, 0.5)
+    return
+
+
+func set_current(_is_current: bool) -> void:
+    is_current = _is_current
+    if is_current:
+        tween_to_target_module(CURRENT_MODULATE)
+    else:
+        tween_to_target_module(NOT_CURRENT_MODULATE)
+    return
 
 
 func ai_take_action() -> void:
     if is_player:
         return
     print("AI taking action for unit: ", unit_name)
-    await get_tree().create_timer(1.0).timeout
+    await get_tree().create_timer(3.0).timeout
     end_turn()
     return
 
 
 func end_turn() -> void:
     turn_finished.emit()
+    return
+
+
+func _unhandled_input(event: InputEvent) -> void:
+    if not is_current or not is_player:
+        return
+    if event.is_action_pressed("player_ends_turn"):
+        print("Player ends turn for unit: ", unit_name)
+        end_turn()
     return

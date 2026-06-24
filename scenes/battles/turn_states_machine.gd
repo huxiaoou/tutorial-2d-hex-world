@@ -36,11 +36,3 @@ func _on_state_changed(new_state: TurnState.TurnStateId) -> void:
     current_state = states[new_state]
     current_state.enter()
     return
-
-
-func _unhandled_input(event: InputEvent) -> void:
-    if event.is_action_pressed("player_ends_turn"):
-        if current_unit != null and current_unit.is_player:
-            print("Player ends turn for unit: ", current_unit.unit_name)
-            current_unit.end_turn()
-    return
