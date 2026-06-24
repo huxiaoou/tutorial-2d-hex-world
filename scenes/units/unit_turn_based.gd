@@ -38,13 +38,6 @@ func ai_take_action() -> void:
     return
 
 
-func _unhandled_input(event: InputEvent) -> void:
-    if event.is_action_pressed("player_ends_turn") and is_player:
-        print("Player ends turn for unit: ", unit_name)
-        end_turn()
-    return
-
-
 func end_turn() -> void:
     turn_finished.emit()
     return
