@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://0ipslfgl5760"]
+
+[ext_resource type="Script" uid="uid://75c81aygs7wi" path="res://scenes/abilities/states_machine/states_machine_ability.gd" id="1_xaaia"]
+[ext_resource type="Script" uid="uid://bntop2i7p661b" path="res://scenes/abilities/states_machine/state_ability_deactivated.gd" id="2_yx82f"]
+[ext_resource type="Script" uid="uid://bvkw610rler2g" path="res://scenes/abilities/states_machine/state_ability_targeting.gd" id="3_j8ita"]
+[ext_resource type="Script" uid="uid://by231u3gktgnv" path="res://scenes/abilities/states_machine/state_ability_casting.gd" id="4_xd77s"]
+
+[node name="StatesMachineAbility" type="Node" unique_id=489683911]
+script = ExtResource("1_xaaia")
+
+[node name="Deactivated" type="Node" parent="." unique_id=404032393]
+script = ExtResource("2_yx82f")
+
+[node name="Targeting" type="Node" parent="." unique_id=412934071]
+script = ExtResource("3_j8ita")
+
+[node name="Casting" type="Node" parent="." unique_id=936277389]
+script = ExtResource("4_xd77s")

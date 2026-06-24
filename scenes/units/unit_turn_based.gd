@@ -13,6 +13,7 @@ signal turn_finished()
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var ability_attack: Ability = $Abilities/AbilityAttack
 
 const CURRENT_MODULATE: Color = Color(1.0, 1.0, 1.0, 1.0)
 const NOT_CURRENT_MODULATE: Color = Color(0.5, 0.5, 0.5, 1.0)
@@ -32,6 +33,8 @@ func _ready() -> void:
 
     set_current(is_current)
     add_to_group("units")
+
+    ability_attack.owner_unit = self
     return
 
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ce7oitscnoc27" path="res://scenes/units/unit_turn_based.gd" id="1_a0l1j"]
 [ext_resource type="Texture2D" uid="uid://ccfgmnyfte5gj" path="res://assets/characters/fs_101_3.png" id="1_s665f"]
+[ext_resource type="PackedScene" uid="uid://qd6ui2w88bli" path="res://scenes/abilities/ability_attack.tscn" id="3_bnhn8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0l1j"]
 radius = 255.0
@@ -44,7 +45,7 @@ _data = {
 }
 
 [node name="UnitTurnBased" type="CharacterBody2D" unique_id=38955862]
-scale = Vector2(0.16000001, 0.16000001)
+scale = Vector2(0.120000005, 0.120000005)
 script = ExtResource("1_a0l1j")
 tex_character = ExtResource("1_s665f")
 
@@ -53,9 +54,14 @@ position = Vector2(10, -261)
 shape = SubResource("CircleShape2D_a0l1j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=947921725]
+modulate = Color(0.5, 0.5, 0.5, 1)
 texture = ExtResource("1_s665f")
 offset = Vector2(0, -261)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812482548]
 libraries/ = SubResource("AnimationLibrary_uoibw")
 autoplay = &"battle_ready"
+
+[node name="Abilities" type="Node" parent="." unique_id=2076026559]
+
+[node name="AbilityAttack" parent="Abilities" unique_id=210898689 instance=ExtResource("3_bnhn8")]

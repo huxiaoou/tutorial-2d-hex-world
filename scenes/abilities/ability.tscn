@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://gh8ij1wvqfd0"]
+
+[ext_resource type="Script" uid="uid://bheye0mtvptac" path="res://scenes/abilities/ability.gd" id="1_mggyc"]
+[ext_resource type="PackedScene" uid="uid://0ipslfgl5760" path="res://scenes/abilities/states_machine/states_machine_ability.tscn" id="2_iid0f"]
+
+[node name="Ability" type="Node" unique_id=210898689]
+script = ExtResource("1_mggyc")
+
+[node name="StatesMachineAbility" parent="." unique_id=489683911 instance=ExtResource("2_iid0f")]

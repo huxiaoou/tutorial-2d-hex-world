@@ -24,27 +24,27 @@ y_sort_enabled = true
 
 [node name="UnitTurnBased1" parent="Units" unique_id=313886638 instance=ExtResource("2_ka0fc")]
 position = Vector2(347, 980)
-scale = Vector2(0.78400004, 0.78400004)
+scale = Vector2(0.58800006, 0.58800006)
 unit_name = "Player1"
 initiative = 11
 
 [node name="UnitTurnBased2" parent="Units" unique_id=38955862 instance=ExtResource("2_ka0fc")]
 position = Vector2(544, 706)
-scale = Vector2(0.56479996, 0.56479996)
+scale = Vector2(0.4236, 0.4236)
 tex_character = ExtResource("3_5k8ds")
 unit_name = "Player2"
 initiative = 14
 
 [node name="UnitTurnBased3" parent="Units" unique_id=510865503 instance=ExtResource("2_ka0fc")]
 position = Vector2(337, 511)
-scale = Vector2(0.40879998, 0.40879998)
+scale = Vector2(0.3066, 0.3066)
 tex_character = ExtResource("4_ah3cp")
 unit_name = "Player3"
 initiative = 9
 
 [node name="UnitTurnBasedA" parent="Units" unique_id=133654671 instance=ExtResource("2_ka0fc")]
 position = Vector2(1517, 486)
-scale = Vector2(0.3888, 0.3888)
+scale = Vector2(0.29160002, 0.29160002)
 tex_character = ExtResource("5_rmkv8")
 unit_name = "EnemyA"
 initiative = 13
@@ -52,7 +52,7 @@ is_player = false
 
 [node name="UnitTurnBasedB" parent="Units" unique_id=1807821717 instance=ExtResource("2_ka0fc")]
 position = Vector2(1243, 732)
-scale = Vector2(0.5856, 0.5856)
+scale = Vector2(0.4392, 0.4392)
 tex_character = ExtResource("6_fqlbl")
 unit_name = "EnemyB"
 initiative = 12
@@ -60,7 +60,7 @@ is_player = false
 
 [node name="UnitTurnBasedC" parent="Units" unique_id=1925123695 instance=ExtResource("2_ka0fc")]
 position = Vector2(1594, 965)
-scale = Vector2(0.772, 0.772)
+scale = Vector2(0.579, 0.579)
 tex_character = ExtResource("7_4cuwg")
 unit_name = "EnemyC"
 is_player = false
