@@ -53,7 +53,7 @@ custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_lag17")
-expand_mode = 3
+expand_mode = 1
 stretch_mode = 5
 script = ExtResource("3_5cblm")
 
