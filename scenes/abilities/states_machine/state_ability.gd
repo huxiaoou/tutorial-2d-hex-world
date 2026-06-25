@@ -21,11 +21,11 @@ signal state_changed(new_state: StateAbilityId)
 
 
 func enter() -> void:
-    print("Entering state: ", state_ability_names[current_id])
+    print("Entering state: ",  StateAbilityId.keys()[current_id])
 
 
 func exit() -> void:
-    print("Exit state: ", state_ability_names[current_id])
+    print("Exit state: ",  StateAbilityId.keys()[current_id])
 
 
 func process(_delta: float) -> void:
