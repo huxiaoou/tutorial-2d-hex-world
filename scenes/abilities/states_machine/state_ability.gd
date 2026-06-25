@@ -8,24 +8,18 @@ enum StateAbilityId {
     CASTING,
 }
 
-var state_ability_names: Dictionary[StateAbilityId, String] = {
-    StateAbilityId.DEACTIVATED: "Deactivated",
-    StateAbilityId.TARGETING: "Targeting",
-    StateAbilityId.CASTING: "Casting",
-}
-
-var states_machine_ability: StatesMachineAbility
+var sma: StatesMachineAbility
 var current_id: StateAbilityId
 
 signal state_changed(new_state: StateAbilityId)
 
 
 func enter() -> void:
-    print("Entering state: ",  StateAbilityId.keys()[current_id])
+    print("Entering state: ", StateAbilityId.keys()[current_id])
 
 
 func exit() -> void:
-    print("Exit state: ",  StateAbilityId.keys()[current_id])
+    print("Exit state: ", StateAbilityId.keys()[current_id])
 
 
 func process(_delta: float) -> void:
@@ -33,4 +27,8 @@ func process(_delta: float) -> void:
 
 
 func physics_process(_delta: float) -> void:
+    pass
+
+
+func unhandled_input(_event: InputEvent) -> void:
     pass

@@ -19,9 +19,21 @@ func _ready() -> void:
     }
 
     for state: StateAbility in states.values():
-        state.states_machine_ability = self
+        state.sma = self
         state.state_changed.connect(_on_state_changed)
     return
+
+
+func is_deactivated() -> bool:
+    return curr_state == deactivated
+
+
+func is_targeting() -> bool:
+    return curr_state == targeting
+
+
+func is_casting() -> bool:
+    return curr_state == casting
 
 
 func setup(_ability: Ability) -> void:
@@ -48,4 +60,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
     if curr_state != null:
         curr_state.physics_process(delta)
+    return
+
+
+func _unhandled_input(event: InputEvent) -> void:
+    if curr_state != null:
+        curr_state.unhandled_input(event)
     return

@@ -9,7 +9,17 @@ func _ready() -> void:
 
 func enter() -> void:
     super()
-    states_machine_ability.ability.targets.clear()
-    await states_machine_ability.ability.ability_activated
+    sma.ability.targets.clear()
+    sma.ability.ability_activated.connect(_on_ability_activated)
+    return
+
+
+func _on_ability_activated() -> void:
     state_changed.emit(StateAbilityId.TARGETING)
+    return
+
+
+func exit() -> void:
+    sma.ability.ability_activated.disconnect(_on_ability_activated)
+    super()
     return

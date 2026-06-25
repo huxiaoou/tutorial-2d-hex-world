@@ -10,6 +10,8 @@ class_name UnitTurnBased
 @export var is_current: bool = false
 
 signal turn_finished()
+signal unit_selected(unit: UnitTurnBased)
+signal unit_deselected(unit: UnitTurnBased)
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -34,7 +36,10 @@ func _ready() -> void:
     set_current(is_current)
     add_to_group("units")
 
-    ability_attack.owner_unit = self
+    if not Engine.is_editor_hint():
+        ability_attack.owner_unit = self
+        unit_selected.connect(SignalBus.on_unit_selected)
+        unit_deselected.connect(SignalBus.on_unit_deselected)
     return
 
 
@@ -74,4 +79,14 @@ func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("player_ends_turn"):
         print("Player ends turn for unit: ", unit_name)
         end_turn()
+    return
+
+
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+    if event.is_action_pressed("interact"):
+        unit_selected.emit(self)
+        get_viewport().set_input_as_handled()
+    elif event.is_action_pressed("de-interact"):
+        unit_deselected.emit(self)
+        get_viewport().set_input_as_handled()
     return

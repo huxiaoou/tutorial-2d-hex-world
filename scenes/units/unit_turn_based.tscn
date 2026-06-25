@@ -45,7 +45,7 @@ _data = {
 }
 
 [node name="UnitTurnBased" type="CharacterBody2D" unique_id=38955862]
-scale = Vector2(0.120000005, 0.120000005)
+input_pickable = true
 script = ExtResource("1_a0l1j")
 tex_character = ExtResource("1_s665f")
 
@@ -65,3 +65,5 @@ autoplay = &"battle_ready"
 [node name="Abilities" type="Node" parent="." unique_id=2076026559]
 
 [node name="AbilityAttack" parent="Abilities" unique_id=210898689 instance=ExtResource("3_bnhn8")]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
