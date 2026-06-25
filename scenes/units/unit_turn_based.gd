@@ -16,6 +16,7 @@ signal unit_deselected(unit: UnitTurnBased)
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ability_attack: Ability = $Abilities/AbilityAttack
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const CURRENT_MODULATE: Color = Color(1.0, 1.0, 1.0, 1.0)
 const NOT_CURRENT_MODULATE: Color = Color(0.5, 0.5, 0.5, 1.0)
@@ -89,4 +90,11 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
     elif event.is_action_pressed("de-interact"):
         unit_deselected.emit(self)
         get_viewport().set_input_as_handled()
+    return
+
+
+func get_hurt() -> void:
+    animation_player.play("hurt")
+    await animation_player.animation_finished
+    animation_player.play("battle_ready")
     return

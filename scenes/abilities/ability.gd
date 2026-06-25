@@ -61,6 +61,7 @@ func remove_target(unit: UnitTurnBased) -> bool:
 
 func cast_ability() -> void:
     print("Casting ability on targets: ", targets)
-    await get_tree().create_timer(1.0).timeout
+    for target: UnitTurnBased in targets:
+        target.get_hurt()
     ability_finished.emit()
     return

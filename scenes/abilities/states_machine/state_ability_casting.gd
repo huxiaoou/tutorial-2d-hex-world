@@ -14,8 +14,8 @@ func _on_ability_finished() -> void:
 
 func enter() -> void:
     super()
-    sma.ability.cast_ability()
     sma.ability.ability_finished.connect(_on_ability_finished)
+    sma.ability.cast_ability()
     return
 
 
