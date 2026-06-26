@@ -17,10 +17,12 @@ func enter() -> void:
     SignalBus.unit_selected.connect(on_unit_selected)
     SignalBus.unit_deselected.connect(on_unit_deselected)
     sma.ability.ability_deactivated.connect(_on_ability_deactivated)
+    sma.ability.init_potential_targets()
     return
 
 
 func exit() -> void:
+    sma.ability.reset_potential_targets()
     SignalBus.unit_selected.disconnect(on_unit_selected)
     SignalBus.unit_deselected.disconnect(on_unit_deselected)
     sma.ability.ability_deactivated.disconnect(_on_ability_deactivated)
@@ -50,4 +52,8 @@ func unhandled_input(event: InputEvent) -> void:
             print("No targets selected. Cannot cast ability.")
     elif event.is_action_pressed("cancel"):
         state_changed.emit(StateAbilityId.DEACTIVATED)
+    elif event.is_action_pressed("next_target"):
+        sma.ability.select_next_potential_target(1)
+    elif event.is_action_pressed("prev_target"):
+        sma.ability.select_next_potential_target(-1)
     return

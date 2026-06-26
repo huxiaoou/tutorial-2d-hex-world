@@ -12,6 +12,8 @@ signal hurt_batch_finished()
 
 var owner_unit: UnitTurnBased = null
 var targets: Array[UnitTurnBased] = []
+var potential_targets: Array[UnitTurnBased] = []
+var potential_target: UnitTurnBased = null
 
 
 func _ready() -> void:
@@ -26,6 +28,41 @@ func activate() -> void:
 
 func deactivate() -> void:
     ability_deactivated.emit()
+    return
+
+
+func init_potential_targets() -> void:
+    var nodes: Array[Node] = []
+    if owner_unit.is_player:
+        nodes = get_tree().get_nodes_in_group("enemies")
+    else:
+        nodes = get_tree().get_nodes_in_group("players")
+
+    potential_targets.clear()
+    for node in nodes:
+        potential_targets.append(node as UnitTurnBased)
+    if not potential_targets.is_empty():
+        potential_target = potential_targets[0]
+        potential_target.toggle_focused(true)
+    return
+
+
+func select_next_potential_target(next: int = 1) -> void:
+    if potential_targets.size() <= 1:
+        return
+    if potential_target:
+        potential_target.toggle_focused(false)
+    var current_index: int = potential_targets.find(potential_target)
+    var next_index: int = (current_index + next) % potential_targets.size()
+    potential_target = potential_targets[next_index]
+    potential_target.toggle_focused(true)
+    return
+
+
+func reset_potential_targets() -> void:
+    if potential_target:
+        potential_target.toggle_focused(false)
+    potential_targets.clear()
     return
 
 
@@ -50,12 +87,14 @@ func add_target(unit: UnitTurnBased) -> bool:
     if targets.size() >= max_target_qty:
         return false
     targets.append(unit)
+    unit.is_selected = true
     return true
 
 
 func remove_target(unit: UnitTurnBased) -> bool:
     if unit in targets:
         targets.erase(unit)
+        unit.is_selected = false
         return true
     return false
 

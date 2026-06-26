@@ -9,12 +9,19 @@ class_name UnitTurnBased
 @export var is_player: bool = true
 @export var is_current: bool = false
 
+var is_focused_target: bool = false
+var is_selected: bool:
+    set(value):
+        is_selected = value
+        target_icon.visible = value
+
 signal turn_finished()
 signal unit_selected(unit: UnitTurnBased)
 signal unit_deselected(unit: UnitTurnBased)
 signal hurt_finished(unit: UnitTurnBased)
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var target_icon: Sprite2D = $TargetIcon
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ability_attack: Ability = $Abilities/AbilityAttack
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -31,6 +38,7 @@ func _ready() -> void:
     sprite_2d.texture = tex_character
     sprite_2d.offset.y = -sprite_2d.texture.get_height() / 2.0
     collision_shape_2d.position.y = -sprite_2d.texture.get_height() / 2.0
+    target_icon.position.y = -sprite_2d.texture.get_height() - target_icon.texture.get_height() / 2.0 * 0.2
 
     var adj_scale: float = clamp(position.y / 1000.0, 0.2, 1.0)
     scale = Vector2.ONE * 0.6 * adj_scale
@@ -48,7 +56,9 @@ func _ready() -> void:
         unit_deselected.connect(SignalBus.on_unit_deselected)
     return
 
+
 func toggle_focused(focused: bool) -> void:
+    is_focused_target = focused
     sprite_2d.material.set_shader_parameter("focused", focused)
     return
 
@@ -84,6 +94,13 @@ func end_turn() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+    if event.is_action_pressed("selected"):
+        if is_focused_target:
+            if not is_selected:
+                unit_selected.emit(self)
+            else:
+                unit_deselected.emit(self)
+        return
     if not is_current or not is_player:
         return
     if event.is_action_pressed("player_ends_turn"):
@@ -103,6 +120,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func get_hurt() -> void:
+    is_selected = false
     animation_player.play("hurt")
     await animation_player.animation_finished
     animation_player.play("battle_ready")
