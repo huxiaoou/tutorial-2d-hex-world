@@ -37,11 +37,19 @@ func _ready() -> void:
 
     set_current(is_current)
     add_to_group("units")
+    if is_player:
+        add_to_group("players")
+    else:
+        add_to_group("enemies")
 
     if not Engine.is_editor_hint():
         ability_attack.owner_unit = self
         unit_selected.connect(SignalBus.on_unit_selected)
         unit_deselected.connect(SignalBus.on_unit_deselected)
+    return
+
+func toggle_focused(focused: bool) -> void:
+    sprite_2d.material.set_shader_parameter("focused", focused)
     return
 
 
