@@ -68,12 +68,10 @@ func cast_ability() -> void:
         return
 
     var pending_targets: Array[UnitTurnBased] = cast_targets.duplicate()
-    var pending_qty: int = pending_targets.size()
     var on_hurt_finished: Callable = func(unit: UnitTurnBased) -> void:
         if unit in pending_targets:
             pending_targets.erase(unit)
-            pending_qty -= 1
-            if pending_qty <= 0:
+            if pending_targets.is_empty():
                 hurt_batch_finished.emit()
 
     for target: UnitTurnBased in cast_targets:
@@ -83,7 +81,7 @@ func cast_ability() -> void:
     for target: UnitTurnBased in cast_targets:
         target.get_hurt()
 
-    if pending_qty > 0:
+    if not pending_targets.is_empty():
         await hurt_batch_finished
 
     for target: UnitTurnBased in cast_targets:
