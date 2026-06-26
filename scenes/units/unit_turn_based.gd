@@ -38,7 +38,7 @@ func _ready() -> void:
     sprite_2d.texture = tex_character
     sprite_2d.offset.y = -sprite_2d.texture.get_height() / 2.0
     collision_shape_2d.position.y = -sprite_2d.texture.get_height() / 2.0
-    target_icon.position.y = -sprite_2d.texture.get_height() - target_icon.texture.get_height() / 2.0 * 0.2
+    target_icon.position.y = -sprite_2d.texture.get_height() - target_icon.texture.get_height() / 2.0 * 0.2 - 60
 
     var adj_scale: float = clamp(position.y / 1000.0, 0.2, 1.0)
     scale = Vector2.ONE * 0.6 * adj_scale
