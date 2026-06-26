@@ -5,6 +5,7 @@ class_name Ability
 signal ability_activated()
 signal ability_deactivated()
 signal ability_finished()
+signal hurt_batch_finished()
 
 @export var max_target_qty: int = 2
 @onready var states_machine_ability: StatesMachineAbility = $StatesMachineAbility
@@ -67,9 +68,13 @@ func cast_ability() -> void:
         return
 
     var pending_targets: Array[UnitTurnBased] = cast_targets.duplicate()
+    var pending_qty: int = pending_targets.size()
     var on_hurt_finished: Callable = func(unit: UnitTurnBased) -> void:
         if unit in pending_targets:
             pending_targets.erase(unit)
+            pending_qty -= 1
+            if pending_qty <= 0:
+                hurt_batch_finished.emit()
 
     for target: UnitTurnBased in cast_targets:
         if not target.hurt_finished.is_connected(on_hurt_finished):
@@ -78,11 +83,11 @@ func cast_ability() -> void:
     for target: UnitTurnBased in cast_targets:
         target.get_hurt()
 
-    while not pending_targets.is_empty():
-        await get_tree().process_frame
+    if pending_qty > 0:
+        await hurt_batch_finished
 
     for target: UnitTurnBased in cast_targets:
-        if target.hurt_finished.is_connected(on_hurt_finished):
+        if is_instance_valid(target) and target.hurt_finished.is_connected(on_hurt_finished):
             target.hurt_finished.disconnect(on_hurt_finished)
 
     ability_finished.emit()
