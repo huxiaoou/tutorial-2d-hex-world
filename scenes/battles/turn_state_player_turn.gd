@@ -12,7 +12,7 @@ func enter() -> void:
     print("Player turn for unit: ", turn_states_machine.current_unit.unit_name)
     turn_states_machine.current_unit.set_current(true)
     await turn_states_machine.current_unit.turn_finished
-    states_changed.emit(TurnStateId.NEXT_TURN)
+    state_changed.emit(TurnStateId.NEXT_TURN)
     return
 
 

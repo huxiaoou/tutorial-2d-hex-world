@@ -9,7 +9,7 @@ enum TurnStateId {
     ENEMY_TURN,
 }
 
-signal states_changed(new_state: TurnStateId)
+signal state_changed(new_state: TurnStateId)
 
 var turn_states_machine: TurnStatesMachine
 var current_id: TurnStateId

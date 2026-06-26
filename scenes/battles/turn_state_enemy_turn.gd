@@ -13,7 +13,7 @@ func enter() -> void:
     turn_states_machine.current_unit.set_current(true)
     turn_states_machine.current_unit.ai_take_action()
     await turn_states_machine.current_unit.turn_finished
-    states_changed.emit(TurnStateId.NEXT_TURN)
+    state_changed.emit(TurnStateId.NEXT_TURN)
     return
 
 

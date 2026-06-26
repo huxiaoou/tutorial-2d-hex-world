@@ -16,5 +16,5 @@ func enter() -> void:
             print(node.unit_name)
     units_queue.sort_custom(UnitTurnBased.is_quicker)
     turn_states_machine.units_queue = units_queue
-    states_changed.emit(TurnStateId.NEXT_TURN)
+    state_changed.emit(TurnStateId.NEXT_TURN)
     return

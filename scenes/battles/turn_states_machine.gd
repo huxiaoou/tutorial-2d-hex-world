@@ -23,7 +23,7 @@ func _ready() -> void:
 
     for state: TurnState in states.values():
         state.turn_states_machine = self
-        state.states_changed.connect(_on_state_changed)
+        state.state_changed.connect(_on_state_changed)
 
     current_state = round_start
     current_state.enter()
