@@ -14,12 +14,14 @@ func _on_ability_finished() -> void:
 
 func enter() -> void:
     super()
-    sma.ability.ability_finished.connect(_on_ability_finished)
+    if not sma.ability.ability_finished.is_connected(_on_ability_finished):
+        sma.ability.ability_finished.connect(_on_ability_finished)
     sma.ability.cast_ability()
     return
 
 
 func exit() -> void:
-    sma.ability.ability_finished.disconnect(_on_ability_finished)
+    if sma.ability.ability_finished.is_connected(_on_ability_finished):
+        sma.ability.ability_finished.disconnect(_on_ability_finished)
     super()
     return

@@ -62,6 +62,6 @@ func remove_target(unit: UnitTurnBased) -> bool:
 func cast_ability() -> void:
     print("Casting ability on targets: ", targets)
     for target: UnitTurnBased in targets:
-        target.get_hurt()
+        await target.get_hurt()
     ability_finished.emit()
     return

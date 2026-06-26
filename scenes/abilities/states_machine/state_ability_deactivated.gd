@@ -10,7 +10,8 @@ func _ready() -> void:
 func enter() -> void:
     super()
     sma.ability.targets.clear()
-    sma.ability.ability_activated.connect(_on_ability_activated)
+    if not sma.ability.ability_activated.is_connected(_on_ability_activated):
+        sma.ability.ability_activated.connect(_on_ability_activated)
     return
 
 
@@ -20,6 +21,7 @@ func _on_ability_activated() -> void:
 
 
 func exit() -> void:
-    sma.ability.ability_activated.disconnect(_on_ability_activated)
+    if sma.ability.ability_activated.is_connected(_on_ability_activated):
+        sma.ability.ability_activated.disconnect(_on_ability_activated)
     super()
     return

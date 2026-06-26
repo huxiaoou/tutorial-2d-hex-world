@@ -14,16 +14,22 @@ func _on_ability_deactivated() -> void:
 
 func enter() -> void:
     super()
-    SignalBus.unit_selected.connect(on_unit_selected)
-    SignalBus.unit_deselected.connect(on_unit_deselected)
-    sma.ability.ability_deactivated.connect(_on_ability_deactivated)
+    if not SignalBus.unit_selected.is_connected(on_unit_selected):
+        SignalBus.unit_selected.connect(on_unit_selected)
+    if not SignalBus.unit_deselected.is_connected(on_unit_deselected):
+        SignalBus.unit_deselected.connect(on_unit_deselected)
+    if not sma.ability.ability_deactivated.is_connected(_on_ability_deactivated):
+        sma.ability.ability_deactivated.connect(_on_ability_deactivated)
     return
 
 
 func exit() -> void:
-    SignalBus.unit_selected.disconnect(on_unit_selected)
-    SignalBus.unit_deselected.disconnect(on_unit_deselected)
-    sma.ability.ability_deactivated.disconnect(_on_ability_deactivated)
+    if SignalBus.unit_selected.is_connected(on_unit_selected):
+        SignalBus.unit_selected.disconnect(on_unit_selected)
+    if SignalBus.unit_deselected.is_connected(on_unit_deselected):
+        SignalBus.unit_deselected.disconnect(on_unit_deselected)
+    if sma.ability.ability_deactivated.is_connected(_on_ability_deactivated):
+        sma.ability.ability_deactivated.disconnect(_on_ability_deactivated)
     super()
     return
 
