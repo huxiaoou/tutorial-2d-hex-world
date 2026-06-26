@@ -12,6 +12,7 @@ class_name UnitTurnBased
 signal turn_finished()
 signal unit_selected(unit: UnitTurnBased)
 signal unit_deselected(unit: UnitTurnBased)
+signal hurt_finished(unit: UnitTurnBased)
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -97,4 +98,5 @@ func get_hurt() -> void:
     animation_player.play("hurt")
     await animation_player.animation_finished
     animation_player.play("battle_ready")
+    hurt_finished.emit(self)
     return

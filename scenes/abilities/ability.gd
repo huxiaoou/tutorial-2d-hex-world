@@ -61,7 +61,29 @@ func remove_target(unit: UnitTurnBased) -> bool:
 
 func cast_ability() -> void:
     print("Casting ability on targets: ", targets)
-    for target: UnitTurnBased in targets:
-        await target.get_hurt()
+    var cast_targets: Array[UnitTurnBased] = targets.duplicate()
+    if cast_targets.is_empty():
+        ability_finished.emit()
+        return
+
+    var pending_targets: Array[UnitTurnBased] = cast_targets.duplicate()
+    var on_hurt_finished: Callable = func(unit: UnitTurnBased) -> void:
+        if unit in pending_targets:
+            pending_targets.erase(unit)
+
+    for target: UnitTurnBased in cast_targets:
+        if not target.hurt_finished.is_connected(on_hurt_finished):
+            target.hurt_finished.connect(on_hurt_finished)
+
+    for target: UnitTurnBased in cast_targets:
+        target.get_hurt()
+
+    while not pending_targets.is_empty():
+        await get_tree().process_frame
+
+    for target: UnitTurnBased in cast_targets:
+        if target.hurt_finished.is_connected(on_hurt_finished):
+            target.hurt_finished.disconnect(on_hurt_finished)
+
     ability_finished.emit()
     return
