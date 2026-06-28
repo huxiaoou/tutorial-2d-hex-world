@@ -14,6 +14,7 @@ var is_selected: bool:
     set(value):
         is_selected = value
         target_icon.visible = value
+var original_position: Vector2 = Vector2.INF
 
 signal turn_finished()
 signal unit_selected(unit: UnitTurnBased)
@@ -125,4 +126,19 @@ func get_hurt() -> void:
     await animation_player.animation_finished
     animation_player.play("battle_ready")
     hurt_finished.emit(self)
+    return
+
+
+func move_to_target_position(target_pos: Vector2) -> void:
+    original_position = position
+    var tw: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+    tw.tween_property(self, "position", target_pos, 0.5)
+    await tw.finished
+    return
+
+
+func move_to_original_position() -> void:
+    var tw: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+    tw.tween_property(self, "position", original_position, 0.5)
+    await tw.finished
     return

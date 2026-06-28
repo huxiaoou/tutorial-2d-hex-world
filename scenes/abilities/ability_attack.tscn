@@ -3,3 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://gh8ij1wvqfd0" path="res://scenes/abilities/ability.tscn" id="1_7fm88"]
 
 [node name="AbilityAttack" unique_id=210898689 instance=ExtResource("1_7fm88")]
+max_target_qty = null

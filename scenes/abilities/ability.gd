@@ -99,8 +99,23 @@ func remove_target(unit: UnitTurnBased) -> bool:
     return false
 
 
+func get_target_pos() -> Vector2:
+    var min_x: float = INF
+    var max_x: float = -INF
+    for target in targets:
+        min_x = min(min_x, target.position.x)
+        max_x = max(max_x, target.position.x)
+    if owner_unit.position.x < min_x and min_x < INF:
+        return owner_unit.position + Vector2((min_x - owner_unit.position.x) * 0.3, 0)
+    if owner_unit.position.x > max_x and max_x > -INF:
+        return owner_unit.position + Vector2((max_x - owner_unit.position.x) * 0.3, 0)
+    return owner_unit.position
+
+
 func cast_ability() -> void:
     print("Casting ability on targets: ", targets)
+    await owner_unit.move_to_target_position(get_target_pos())
+
     if targets.is_empty():
         ability_finished.emit()
         return
@@ -125,6 +140,8 @@ func cast_ability() -> void:
     for target: UnitTurnBased in targets:
         if is_instance_valid(target) and target.hurt_finished.is_connected(on_hurt_finished):
             target.hurt_finished.disconnect(on_hurt_finished)
+
+    await owner_unit.move_to_original_position()
 
     ability_finished.emit()
     return
