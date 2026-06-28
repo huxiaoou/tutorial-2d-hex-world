@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cj4d2lxalwafd"]
+
+[ext_resource type="Shader" uid="uid://c2g6qu26vim82" path="res://scenes/battles/pixel_battle.gdshader" id="1_1sad0"]
+[ext_resource type="Texture2D" uid="uid://3xhhfxo1mj0w" path="res://assets/backgrounds/ChatGPT Image Jun 27, 2026, 09_59_46 PM_2026-06-27_14_00_53.460643.png" id="1_pql0y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndj5s"]
+shader = ExtResource("1_1sad0")
+shader_parameter/pixel_size = 8.0
+shader_parameter/color_levels = 8.0
+
+[node name="Node2D" type="Node2D" unique_id=252199926]
+material = SubResource("ShaderMaterial_ndj5s")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=453902156]
+use_parent_material = true
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_pql0y")
+expand_mode = 1
+stretch_mode = 5
