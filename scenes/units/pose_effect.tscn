@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bbkmvba27p4tc" path="res://scenes/units/pose_effect.gd" id="1_7dnaw"]
 [ext_resource type="Texture2D" uid="uid://c2h2qhbbexaqh" path="res://assets/characters/p_124.png" id="1_lag17"]
+[ext_resource type="Texture2D" uid="uid://bpbuqmqerx31e" path="res://assets/backgrounds/ChatGPT_Image_Jun_29__2026__09_16_32_PM_2026-06-29_13_17_22.115380.png" id="2_tlynl"]
 [ext_resource type="Script" uid="uid://cgdv2u3c17a28" path="res://scenes/units/ghost_trail.gd" id="3_5cblm"]
 [ext_resource type="AudioStream" uid="uid://bdsnlq27p8uk" path="res://assets/audios/Hero_Olivia_I_Will_End_You.wav" id="3_y275o"]
 
 [sub_resource type="Animation" id="Animation_7dnaw"]
 resource_name = "main"
-length = 2.05
+length = 3.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,7 +16,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.03333333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -29,7 +30,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.26666668, 0.8),
+"times": PackedFloat32Array(0.56666666, 1.3333334),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -37,6 +38,23 @@ tracks/1/keys = {
 }, {
 "args": [],
 "method": &"play_lines"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"background_fade_in"
+}, {
+"args": [],
+"method": &"background_fade_out"
 }]
 }
 
@@ -47,6 +65,14 @@ _data = {
 
 [node name="PoseEffect" type="Node2D" unique_id=2055274280]
 script = ExtResource("1_7dnaw")
+
+[node name="Background" type="TextureRect" parent="." unique_id=330216587]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_tlynl")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=703023296]
 custom_minimum_size = Vector2(1920, 1080)
