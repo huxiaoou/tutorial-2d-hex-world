@@ -8,16 +8,20 @@ signal ability_finished()
 signal hurt_batch_finished()
 
 @export var max_target_qty: int = 2
+@export var scene_effect: PackedScene = preload("res://scenes/units/pose_effect.tscn")
 @onready var states_machine_ability: StatesMachineAbility = $StatesMachineAbility
 
 var owner_unit: UnitTurnBased = null
 var targets: Array[UnitTurnBased] = []
 var potential_targets: Array[UnitTurnBased] = []
 var potential_target: UnitTurnBased = null
+var pos_effect: PoseEffect = null
 
 
 func _ready() -> void:
     states_machine_ability.setup(self)
+    pos_effect = scene_effect.instantiate()
+    add_child(pos_effect)
     return
 
 
@@ -130,6 +134,8 @@ func cast_ability() -> void:
     for target: UnitTurnBased in targets:
         if not target.hurt_finished.is_connected(on_hurt_finished):
             target.hurt_finished.connect(on_hurt_finished)
+
+    await pos_effect.play_main()
 
     for target: UnitTurnBased in targets:
         target.get_hurt()

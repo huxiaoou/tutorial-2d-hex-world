@@ -17,7 +17,14 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("toggle_debug"):
-        animation_player.play("main")
+        play_main()
+    return
+
+
+func play_main() -> void:
+    animation_player.play("main")
+    await animation_player.animation_finished
+    return
 
 
 func play_movement() -> void:
