@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b3fjxy3kgxaj0"]
+
+[ext_resource type="Script" uid="uid://bhjxnnlyajjhq" path="res://scenes/units/unit_8d.gd" id="1_l5s25"]
+[ext_resource type="SpriteFrames" uid="uid://drcq5n0uvrr6c" path="res://resources/sprite_frames/skeleton.tres" id="2_etug6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvmjw"]
+radius = 86.54
+height = 237.52
+
+[node name="Unit8D" type="CharacterBody2D" unique_id=1823611004]
+script = ExtResource("1_l5s25")
+
+[node name="shadow" type="AnimatedSprite2D" parent="." unique_id=2107200281]
+modulate = Color(0, 0, 0, 0.60784316)
+position = Vector2(232, -73)
+skew = 1.3247048
+sprite_frames = ExtResource("2_etug6")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5348082
+
+[node name="body" type="AnimatedSprite2D" parent="." unique_id=1337333243]
+position = Vector2(0, -224)
+sprite_frames = ExtResource("2_etug6")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.9522979
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1319648521]
+position = Vector2(0, -121)
+shape = SubResource("CapsuleShape2D_gvmjw")
