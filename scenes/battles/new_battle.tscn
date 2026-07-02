@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7i0okf1rsxpy"]
 
-[ext_resource type="Texture2D" uid="uid://3xhhfxo1mj0w" path="res://assets/backgrounds/ChatGPT Image Jun 27, 2026, 09_59_46 PM_2026-06-27_14_00_53.460643.png" id="1_v18bk"]
+[ext_resource type="Texture2D" uid="uid://d8u17rxvvuj3" path="res://assets/backgrounds/ChatGPT_Image_Jun_27__2026__09_42_49_PM_2026-06-27_13_44_41.320887.png" id="1_csn6k"]
 [ext_resource type="PackedScene" uid="uid://b3fjxy3kgxaj0" path="res://scenes/units/unit_8d.tscn" id="2_csn6k"]
 
 [node name="Node2D" type="Node2D" unique_id=386845624]
@@ -9,7 +9,7 @@
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_v18bk")
+texture = ExtResource("1_csn6k")
 expand_mode = 1
 stretch_mode = 5
 

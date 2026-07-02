@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cxe87r4shbf6f"]
+
+[ext_resource type="SpriteFrames" uid="uid://cxhjbquttjgdc" path="res://resources/sprite_frames/test_gpt.tres" id="1_3waky"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1137101633]
+sprite_frames = ExtResource("1_3waky")
+animation = &"attack"
